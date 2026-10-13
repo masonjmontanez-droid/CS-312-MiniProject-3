@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Mason's Awesome Blog</title>
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<h1>Mason's Awesome Blog</h1>
+
+<p>Signed in as <%= user.name %> | <a href="/logout">Logout</a></p>
+
+<h2>Create a New Post</h2>
+
+    <form action="/posts" method="POST">
+    <label>Title:</label>
+        <input type="text" name="title" required>
+    <br>
+
+    <label>Content:</label>
+
+    <br>
+    <textarea name="body" rows="5" cols="20" required></textarea>
+    <br>
+
+    <label>Category:</label>
+    <select name="category">
+
+    <option value="Fitness">Fitness</option>
+     <option value="Hobbys">Hobbys</option>
+    <option value="Professional">Professional</option>
+    </select>
+    <br>
+
+
+        <button type="submit">Post</button>
+        <button type="submit">Submit Post</button>
+</form>
+<h2>All Posts</h2>
+<a href="/">All</a> |
+<a href="/?category=Fitness">Fitness</a> |
+<a href="/?category=Hobbys">Hobbys</a> |
+<a href="/?category=Professional">Professional</a>
+
+<% posts.forEach(function(post) { %>
+
+  <div>
+
+    <h3><%= post.title %></h3>
+
+    <p>By: <%= post.creator_name %></p>
+    <p><%= post.body %></p>
+    <p>Category: <%= post.category %></p>
+    <p><small><%= post.date_created %></small></p>
+
+    <% if (post.creator_user_id == user.user_id) { %>
+    <a href="/posts/<%= post.blog_id %>/edit">Edit</a>
+
+<form action="/posts/<%= post.blog_id %>/delete" method="POST" style="display:inline">
+  <button type="submit">Delete</button>
+</form>
+    <% } %>
+
+  </div>
+<% }); %>
+
+</body>
+</html>

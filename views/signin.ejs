@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sign In - Mason's Awesome Blog</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<h1>Sign In</h1>
+
+<% if (error) { %>
+<p class="error"><%= error %></p>
+<% } %>
+
+    <form action="/signin" method="POST">
+    <label>User ID:</label>
+    <input type="text" name="user_id" required>
+    <br>
+
+    <label>Password:</label>
+        <input type="password" name="password" required>
+    <br>
+
+
+        <button type="submit">Sign In</button>
+        <button type="submit">Submit</button>
+</form>
+
+<p>Don't have an account? <a href="/signup">Sign up here</a></p>
+
+</body>
+</html>

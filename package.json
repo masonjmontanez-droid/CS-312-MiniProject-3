@@ -1,0 +1,19 @@
+{
+  "name": "blog-app-mp3",
+  "version": "1.0.0",
+  "description": "CS 312 Mini Project 3 - blog app with Postgres and login",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "ejs": "^3.1.10",
+    "pg": "^8.12.0",
+    "express-session": "^1.18.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
